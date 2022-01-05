@@ -1,0 +1,25 @@
+{
+    "filament" : [
+        {
+            "brand":"Matchbox",
+            "type":"PLA",
+            "color":"red",
+            "amount":400,
+            "note":"none"
+        },
+        {
+            "brand":"Matchbox",
+            "type":"PLA",
+            "color":"blue",
+            "amount":600,
+            "note":"none"
+        },
+        {
+            "brand":"Matchbox",
+            "type":"PETG",
+            "color":"green",
+            "amount":1000,
+            "note":"none"
+        }
+    ]
+}
