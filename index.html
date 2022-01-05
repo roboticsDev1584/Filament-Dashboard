@@ -1,91 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
-<style>
-body {
-	font-family: 'Roboto', sans-serif;
-}
-.filamentC {
-	width:500px;
-    height:auto;
-    font-style:normal;
-    font-size:24px;
-    font-weight:bold;
-    user-select:none;
-}
-.filamentC h1 {
-	background-color:#668cff;
-    color:white;
-    text-align:center;
-    font-style:italic;
-  	font-size:40px;
-    margin-bottom:0;
-}
-ul {
-	list-style-type:none;
-    margin:0;
-    padding:0;
-    background-color:#99ccff;
-}
-li {
-    padding:6px;
-    padding-left:40%;
-    transition:1s background-color;
-}
-li:hover {
-	background-color:#66b3ff;
-    cursor:pointer;
-}
-</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .filamentC {
+            width: 500px;
+            height: auto;
+            font-style: normal;
+            font-size: 24px;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        .filamentC h1 {
+            background-color: #668cff;
+            color: white;
+            text-align: center;
+            font-style: italic;
+            font-size: 40px;
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #99ccff;
+        }
+
+        li {
+            padding: 6px;
+            padding-left: 40%;
+            transition: 1s background-color;
+        }
+
+        li:hover {
+            background-color: #66b3ff;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="filamentC" id="pla">
-<h1>PLA</h1>
-<ul>
-	<li>Blue</li>
-    <li>Green</li>
-    <li>Red</li>
-</ul>
-</div>
-<div class="filamentC" id="petg">
-<h1>PETG</h1>
-<ul>
-	<li>Blue - <span id="bluePetg">?</span>g</li>
-    <li>Green - <span id="greenPetg">?</span>g</li>
-    <li>Red - <span id="redPetg">?</span>g</li>
-</ul>
-</div>
-<div class="filamentC" id="abs">
-<h1>ABS</h1>
-<ul>
-	<li>Blue</li>
-    <li>Green</li>
-    <li>Red</li>
-</ul>
-</div>
-<div class="filamentC" id="flexible">
-<h1>TPU (Flexible)</h1>
-<ul>
-	<li>Black</li>
-</ul>
-</div>
+    <div class="filamentC" id="pla">
+        <h1>PLA</h1>
+        <ul>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Red</li>
+        </ul>
+    </div>
+    <div class="filamentC" id="petg">
+        <h1>PETG</h1>
+        <ul>
+            <li>Blue - <span id="bluePetg">?</span>g</li>
+            <li>Green - <span id="greenPetg">?</span>g</li>
+            <li>Red - <span id="redPetg">?</span>g</li>
+        </ul>
+    </div>
+    <div class="filamentC" id="abs">
+        <h1>ABS</h1>
+        <ul>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Red</li>
+        </ul>
+    </div>
+    <div class="filamentC" id="flexible">
+        <h1>TPU (Flexible)</h1>
+        <ul>
+            <li>Black</li>
+        </ul>
+    </div>
 
 </body>
 <script>
-$(document).ready(function() {
-	$(".filamentC").on("click", function() {
-    	if ($(this).find("ul").css("display") == "none") {
-        	$(this).find("ul").css("display", "block");
+    var dataArr = [];
+    $(".filamentC").on("click", function () {
+        if ($(this).find("ul").css("display") == "none") {
+            $(this).find("ul").css("display", "block");
         }
         else if ($(this).find("ul").css("display") == "block") {
-        	$(this).find("ul").css("display", "none");
+            $(this).find("ul").css("display", "none");
         }
     });
-});
+    fetch('/assets/filament.json', { mode: 'cors' }).then(function (resp) {
+        return resp.json();
+    }).then(function (data) {
+        dataArr = data.filament;
+    });
 </script>
+
 </html>
