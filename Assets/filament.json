@@ -3,21 +3,21 @@
         {
             "brand":"Matchbox",
             "type":"PLA",
-            "color":"red",
+            "color":"Red",
             "amount":400,
             "note":"none"
         },
         {
             "brand":"Matchbox",
             "type":"PLA",
-            "color":"blue",
+            "color":"Blue",
             "amount":600,
             "note":"none"
         },
         {
             "brand":"Matchbox",
             "type":"PETG",
-            "color":"green",
+            "color":"Green",
             "amount":1000,
             "note":"none"
         }
