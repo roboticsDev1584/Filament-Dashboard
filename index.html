@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="Assets/favicon.png" />
     <title>Filament Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -32,20 +35,20 @@
             margin-bottom: 0;
         }
 
-        ul {
+        .filamentList {
             list-style-type: none;
             margin: 0;
             padding: 0;
             background-color: #99ccff;
         }
 
-        li {
+        .linkItem {
             padding: 6px;
             padding-left: 40%;
             transition: 1s background-color;
         }
 
-        li:hover {
+        .linkItem:hover {
             background-color: #66b3ff;
             cursor: pointer;
         }
@@ -53,21 +56,42 @@
 </head>
 
 <body>
+    <h1>Filament Dashboard</h1>
+    <h3>Filament Stats</h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success plaBar" role="progressbar" style="width:40%">
+            PLA - <span class="plaPercent"></span>%
+        </div>
+        <div class="progress-bar progress-bar-info petgBar" role="progressbar" style="width:10%">
+            PETG - <span class="petgPercent"></span>%
+        </div>
+        <div class="progress-bar progress-bar-warning absBar" role="progressbar" style="width:20%">
+            ABS - <span class="absPercent"></span>%
+        </div>
+        <div class="progress-bar progress-bar-danger tpuBar" role="progressbar" style="width:20%">
+            TPU - <span class="tpuPercent"></span>%
+        </div>
+    </div>
+    <br>
+    <h3>Replace Filament</h3>
+
+    <br>
+    <h3>Filament Listing</h3>
     <div class="filamentC" id="pla">
         <h1>PLA</h1>
-        <ul id="plaUL"></ul>
+        <ul class="filamentList" id="plaUL"></ul>
     </div>
     <div class="filamentC" id="petg">
         <h1>PETG</h1>
-        <ul id="petgUL"></ul>
+        <ul class="filamentList" id="petgUL"></ul>
     </div>
     <div class="filamentC" id="abs">
         <h1>ABS</h1>
-        <ul id="absUL"></ul>
+        <ul class="filamentList" id="absUL"></ul>
     </div>
     <div class="filamentC" id="flexible">
         <h1>TPU (Flexible)</h1>
-        <ul id="tpuUL"></ul>
+        <ul class="filamentList" id="tpuUL"></ul>
     </div>
 
 </body>
@@ -77,6 +101,10 @@
     var petgListing = document.querySelector("#petgUL");
     var absListing = document.querySelector("#absUL");
     var tpuListing = document.querySelector("#tpuUL");
+    var plaPercent = 0;
+    var petgPercent = 0;
+    var absPercent = 0;
+    var tpuPercent = 0;
     function updateFilamentInListing(index) {
         //this creates a new list item element
         var listItem = document.createElement("LI");
@@ -113,11 +141,43 @@
             filamentListing.removeChild(filamentListing.firstChild);
         }
     }
+    function updatePercents() {
+        var plaT = 0; var petgT = 0; var absT = 0; var tpuT = 0;
+        for (var index = 0; index < dataArr.length; index++) {
+            var temp = dataArr[index];
+            switch(temp.type) {
+                case "PLA" : 
+                    plaT++;
+                    break;
+                case "PETG" : 
+                    petgT++;
+                    break;
+                case "ABS" : 
+                    absT++;
+                    break;
+                case "TPU" : 
+                    tpuT++;
+                    break;
+                default : 
+                    plaT++;
+                    break;    
+            }
+        }
+        plaPercent = plaT/dataArr.length;
+        petgPercent = petgT/dataArr.length;
+        absPercent = absT/dataArr.length;
+        tpuPercent = 100-plaPercent-petgPercent-absPercent;
+        $(".plaPercent").text(`${plaPercent}`);$(".plaBar").css("width", `${plaPercent}%`);
+        $(".petgPercent").text(`${petgPercent}`);$(".petgBar").css("width", `${petgPercent}%`);
+        $(".absPercent").text(`${absPercent}`);$(".absBar").css("width", `${absPercent}%`);
+        $(".tpuPercent").text(`${tpuPercent}`);$(".tpuBar").css("width", `${tpuPercent}%`);
+    }
     fetch('Assets/filament.json', { mode: 'cors' }).then(function (resp) {
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
         updateFilamentListing();
+        updatePercents();
     });
     $(".filamentC").on("click", function () {
         if ($(this).find("ul").css("display") == "none") {
