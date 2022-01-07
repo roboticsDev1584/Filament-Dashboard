@@ -166,6 +166,7 @@
         plaPercent = plaT/dataArr.length;
         petgPercent = petgT/dataArr.length;
         absPercent = absT/dataArr.length;
+        plaPercent*=100;petgPercent*=100;absPercent*=100;
         tpuPercent = 100-plaPercent-petgPercent-absPercent;
         $(".plaPercent").text(`${plaPercent}`);$(".plaBar").css("width", `${plaPercent}%`);
         $(".petgPercent").text(`${petgPercent}`);$(".petgBar").css("width", `${petgPercent}%`);
