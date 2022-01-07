@@ -168,10 +168,10 @@
         absPercent = absT/dataArr.length;
         plaPercent*=100;petgPercent*=100;absPercent*=100;
         tpuPercent = 100-plaPercent-petgPercent-absPercent;
-        $(".plaPercent").text(`${plaPercent}`);$(".plaBar").css("width", `${plaPercent.toFixed(1)}%`);
-        $(".petgPercent").text(`${petgPercent}`);$(".petgBar").css("width", `${petgPercent.toFixed(1)}%`);
-        $(".absPercent").text(`${absPercent}`);$(".absBar").css("width", `${absPercent.toFixed(1)}%`);
-        $(".tpuPercent").text(`${tpuPercent}`);$(".tpuBar").css("width", `${tpuPercent.toFixed(1)}%`);
+        $(".plaPercent").text(`${plaPercent.toFixed(1)}`);$(".plaBar").css("width", `${plaPercent}%`);
+        $(".petgPercent").text(`${petgPercent.toFixed(1)}`);$(".petgBar").css("width", `${petgPercent}%`);
+        $(".absPercent").text(`${absPercent.toFixed(1)}`);$(".absBar").css("width", `${absPercent}%`);
+        $(".tpuPercent").text(`${tpuPercent.toFixed(1)}`);$(".tpuBar").css("width", `${tpuPercent}%`);
     }
     fetch('Assets/filament.json', { mode: 'cors' }).then(function (resp) {
         return resp.json();
