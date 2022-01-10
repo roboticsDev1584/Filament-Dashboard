@@ -1,17 +1,24 @@
 {
     "filament" : [
         {
-            "brand":"Matchbox",
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Pink",
+            "amount":56,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
             "type":"PLA",
             "color":"Red",
-            "amount":400,
+            "amount":199,
             "note":"none"
         },
         {
             "brand":"Matchbox",
             "type":"PLA",
             "color":"Blue",
-            "amount":600,
+            "amount":399,
             "note":"none"
         },
         {
