@@ -226,28 +226,28 @@
             filamentListing.removeChild(filamentListing.firstChild);
         }
     }
-    function sortArray(array) {
+    function sortArray() {
             var lowestVal;
             var sortedArray = [];
-            for (var index = 0; index < array.length; index++) {
+            for (var index = 0; index < dataArr.length; index++) {
               lowestVal = 100000000000;
-              for (var index2 = index; index2 < array.length; index2++) {
+              for (var index2 = index; index2 < dataArr.length; index2++) {
                   console.log("getting amount");
-                var currentVal = array[index].amount;
+                var currentVal = dataArr[index].amount;
                 if (currentVal < lowestVal) {
                   lowestVal = currentVal;
                   var oldObj = sortedArray[index];
                   //this places the least amount first
-                  sortedArray[index] = array[index2];
-                  array[index2] = oldObj;
+                  sortedArray[index] = dataArr[index2];
+                  dataArr[index2] = oldObj;
                 }
                 else if (currentVal == lowestVal) {
                   var tempObj = sortedArray[index];
                   //reverse the two objects if they are not alphabetically sorted when same amount
-                  if (array[index2].brand < tempObj.brand) {
+                  if (dataArr[index2].brand < tempObj.brand) {
                     sortedArray[index+1] = tempObj;
-                    sortedArray[index] = array[index2];
-                    array[index2] = tempObj;
+                    sortedArray[index] = dataArr[index2];
+                    dataArr[index2] = tempObj;
                   }
                 }
               }
@@ -290,7 +290,7 @@
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
-        amountArr = sortArray(dataArr);
+        amountArr = sortArray();
         updateFilamentListing();
         updatePercents();
     });
