@@ -51,7 +51,6 @@
 
         .linkItem {
             padding: 6px;
-            padding-left: 40%;
             transition: 1s background-color;
         }
 
@@ -233,6 +232,7 @@
             for (var index = 0; index < array.length; index++) {
               lowestVal = 100000000000;
               for (var index2 = index; index2 < array.length; index2++) {
+                  console.log("getting amount");
                 var currentVal = array[index].amount;
                 if (currentVal < lowestVal) {
                   lowestVal = currentVal;
