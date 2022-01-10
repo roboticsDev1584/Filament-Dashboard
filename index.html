@@ -15,8 +15,15 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            margin:0;
         }
-
+        .bodyContent {
+            width:60%;
+            margin-right:auto;
+            margin-left:auto;
+            background-color:white;
+            height:100%;
+        }
         .filamentC {
             width: 500px;
             height: auto;
@@ -52,10 +59,40 @@
             background-color: #66b3ff;
             cursor: pointer;
         }
+        .replaceItem {
+            width:70%;
+            margin-right:auto;
+            margin-left:auto;
+            padding: 6px;
+        }
+        .replaceItem:last-child {
+            margin-bottom:5%;
+        }
+        .replaceItem:hover {
+            cursor:pointer;
+        }
+        .replaceList {
+            width:80%;
+            margin-right:auto;
+            margin-left:auto;
+            background-color: #668cff;
+            overflow-x:hidden;
+            overflow-y:scroll;
+        }
+        .replaceGrid {
+            display:grid;
+            grid-template-columns:auto 20px auto;
+            width:100%;
+            justify-content:start;
+        }
+        .replaceGrid h3 {
+            margin:0;
+        }
     </style>
 </head>
 
 <body>
+    <div class="bodyContent">
     <h1>Filament Dashboard</h1>
     <h3>Filament Stats</h3>
     <div class="progress">
@@ -73,8 +110,21 @@
         </div>
     </div>
     <br>
-    <h3>Replace Filament</h3>
-
+    <div class="replaceGrid">
+        <h3>Replace Filament</h3>
+        <div> </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">&#60;<span class="selected">600</span>g
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="less1000">&#60;1000g</a></li>
+              <li><a href="#" id="less600">&#60;600g</a></li>
+              <li><a href="#" id="less400">&#60;400g</a></li>
+              <li><a href="#" id="less200">&#60;200g</a></li>
+            </ul>
+          </div>
+    </div>
+    <ul class="replaceList" id="replaceUL"></ul>
     <br>
     <h3>Filament Listing</h3>
     <div class="filamentC" id="pla">
@@ -93,14 +143,16 @@
         <h1>TPU (Flexible)</h1>
         <ul class="filamentList" id="tpuUL"></ul>
     </div>
-
+    </div>
 </body>
 <script>
     var dataArr = [];
+    var amountArr = [];
     var plaListing = document.querySelector("#plaUL");
     var petgListing = document.querySelector("#petgUL");
     var absListing = document.querySelector("#absUL");
     var tpuListing = document.querySelector("#tpuUL");
+    var replaceListing = document.querySelector("#replaceUL");
     var plaPercent = 0;
     var petgPercent = 0;
     var absPercent = 0;
@@ -131,9 +183,43 @@
         var colorTxt = document.createTextNode(`${dataArr[index].brand} ${dataArr[index].color} - ${dataArr[index].amount}g`);
         listItem.appendChild(colorTxt);
     }
+    function updateFilamentInReplace(index) {
+        //this creates a new list item element
+        var listItem = document.createElement("LI");
+        listItem.id = `${amountArr[index].type}replace${index + 1}`;
+        listItem.classList.add("replaceItem");
+        //setting the properties of the filament
+        var amount = amountArr[index].amount;
+        var colorTxt = document.createTextNode(`${amountArr[index].brand} ${amountArr[index].color} - ${amount}g`);
+        if (amount < 100) {
+            listItem.style.backgroundColor = "#cc0000";
+            replaceListing.appendChild(listItem);
+        }
+        else if (amount < 250) {
+            listItem.style.backgroundColor = "#ff3333";
+            replaceListing.appendChild(listItem);
+        }
+        else if (amount < 400) {
+            listItem.style.backgroundColor = "#ff6600";
+            replaceListing.appendChild(listItem);
+        }
+        else if (amount < 600) {
+            listItem.style.backgroundColor = "#ffff4d";
+            replaceListing.appendChild(listItem);
+        }
+        listItem.appendChild(colorTxt);
+    }
     function updateFilamentListing() {
         for (var index = 0; index < dataArr.length; index++) {
             updateFilamentInListing(index);
+            updateFilamentInReplace(index);
+        }
+    }
+    function updateReplaceListing(max) {
+        for (var index = 0; index < amountArr.length; index++) {
+            if (amountArr[index].amount < max) {
+                updateFilamentInReplace(index);
+            }
         }
     }
     function clearFilamentListing(filamentListing) {
@@ -141,6 +227,33 @@
             filamentListing.removeChild(filamentListing.firstChild);
         }
     }
+    function sortArray(array) {
+            var lowestVal;
+            var sortedArray = [];
+            for (var index = 0; index < array.length; index++) {
+              lowestVal = 100000000000;
+              for (var index2 = index; index2 < array.length; index2++) {
+                var currentVal = array[index].amount;
+                if (currentVal < lowestVal) {
+                  lowestVal = currentVal;
+                  var oldObj = sortedArray[index];
+                  //this places the least amount first
+                  sortedArray[index] = array[index2];
+                  array[index2] = oldObj;
+                }
+                else if (currentVal == lowestVal) {
+                  var tempObj = sortedArray[index];
+                  //reverse the two objects if they are not alphabetically sorted when same amount
+                  if (array[index2].brand < tempObj.brand) {
+                    sortedArray[index+1] = tempObj;
+                    sortedArray[index] = array[index2];
+                    array[index2] = tempObj;
+                  }
+                }
+              }
+            }
+            return sortedArray;
+          }
     function updatePercents() {
         var plaT = 0; var petgT = 0; var absT = 0; var tpuT = 0;
         for (var index = 0; index < dataArr.length; index++) {
@@ -177,6 +290,7 @@
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
+        amountArr = sortArray(dataArr);
         updateFilamentListing();
         updatePercents();
     });
@@ -186,6 +300,27 @@
         }
         else if ($(this).find("ul").css("display") == "block") {
             $(this).find("ul").css("display", "none");
+        }
+    });
+    $(".dropdown-menu li a").on("click", function() {
+        clearFilamentListing(replaceListing);
+        switch($(this).attr("id")) {
+            case "less1000": 
+            updateReplaceListing(1000);
+            $(".selected").text("1000");
+            break;
+            case "less600": 
+            updateReplaceListing(600);
+            $(".selected").text("600");
+            break;
+            case "less400": 
+            updateReplaceListing(400);
+            $(".selected").text("400");
+            break;
+            case "less200": 
+            updateReplaceListing(200);
+            $(".selected").text("200");
+            break;
         }
     });
 </script>
