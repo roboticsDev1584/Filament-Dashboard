@@ -290,6 +290,7 @@
     fetch('Assets/filament.json', { mode: 'cors' }).then(function (resp) {
         return resp.json();
     }).then(function (data) {
+        console.log(data);
         dataArr = data.filament;
         console.log(dataArr);
         amountArr = sortArray();
