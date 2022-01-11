@@ -145,8 +145,8 @@
     </div>
 </body>
 <script>
-    var dataArr = [];
-    var amountArr = [];
+    var dataArr;
+    var amountArr;
     var plaListing = document.querySelector("#plaUL");
     var petgListing = document.querySelector("#petgUL");
     var absListing = document.querySelector("#absUL");
@@ -291,6 +291,7 @@
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
+        console.log(dataArr);
         amountArr = sortArray();
         updateFilamentListing();
         updatePercents();
