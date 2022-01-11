@@ -288,6 +288,7 @@
         $(".tpuPercent").text(`${tpuPercent.toFixed(1)}`);$(".tpuBar").css("width", `${tpuPercent}%`);
     }
     fetch('Assets/filament.json', { mode: 'cors' }).then(function (resp) {
+        console.log(resp.json());
         return resp.json();
     }).then(function (data) {
         console.log(data);
