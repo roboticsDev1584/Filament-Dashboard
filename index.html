@@ -232,8 +232,9 @@
             for (var index = 0; index < dataArr.length; index++) {
               lowestVal = 100000000000;
               for (var index2 = index; index2 < dataArr.length; index2++) {
-                  console.log("getting amount");
-                var currentVal = dataArr[index].amount;
+                console.log("dataArr");  
+                console.log(dataArr);
+                var currentVal = dataArr[index2].amount;
                 if (currentVal < lowestVal) {
                   lowestVal = currentVal;
                   var oldObj = sortedArray[index];
