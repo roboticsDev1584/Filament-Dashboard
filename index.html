@@ -287,13 +287,10 @@
         $(".absPercent").text(`${absPercent.toFixed(1)}`);$(".absBar").css("width", `${absPercent}%`);
         $(".tpuPercent").text(`${tpuPercent.toFixed(1)}`);$(".tpuBar").css("width", `${tpuPercent}%`);
     }
-    fetch('Assets/filament.json', { mode: 'cors' }).then(function (resp) {
-        console.log(resp.json());
+    fetch('Assets/filament.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
-        console.log(data);
         dataArr = data.filament;
-        console.log(dataArr);
         amountArr = sortArray();
         updateFilamentListing();
         updatePercents();
