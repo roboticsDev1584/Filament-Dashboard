@@ -147,7 +147,7 @@
 <script>
     var dataArr;
     var amountArr;
-    /*var plaListing = document.querySelector("#plaUL");
+    var plaListing = document.querySelector("#plaUL");
     var petgListing = document.querySelector("#petgUL");
     var absListing = document.querySelector("#absUL");
     var tpuListing = document.querySelector("#tpuUL");
@@ -286,16 +286,16 @@
         $(".petgPercent").text(`${petgPercent.toFixed(1)}`);$(".petgBar").css("width", `${petgPercent}%`);
         $(".absPercent").text(`${absPercent.toFixed(1)}`);$(".absBar").css("width", `${absPercent}%`);
         $(".tpuPercent").text(`${tpuPercent.toFixed(1)}`);$(".tpuBar").css("width", `${tpuPercent}%`);
-    }*/
+    }
     fetch("Assets/filament.json").then(function (resp) {
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
-        //amountArr = sortArray();
-        //updateFilamentListing();
-        //updatePercents();
+        amountArr = sortArray();
+        updateFilamentListing();
+        updatePercents();
     });
-    /*$(".filamentC").on("click", function () {
+    $(".filamentC").on("click", function () {
         if ($(this).find("ul").css("display") == "none") {
             $(this).find("ul").css("display", "block");
         }
@@ -323,7 +323,7 @@
             $(".selected").text("200");
             break;
         }
-    });*/
+    });
 </script>
 
 </html>
