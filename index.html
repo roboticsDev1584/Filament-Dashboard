@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="Assets/favicon.png" />
     <title>Filament Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,7 @@
             height:100%;
         }
         .filamentC {
-            width: 500px;
+            width: 100%;
             height: auto;
             font-style: normal;
             font-size: 24px;
@@ -42,7 +43,22 @@
             margin-bottom: 0;
         }
 
+        .filamentC h1:hover {
+            cursor:pointer;
+        }
+
         .filamentList {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #99ccff;
+        }
+        
+        .filamentLists {
+            margin-right:auto;
+        }
+
+        .replaceList {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -79,21 +95,44 @@
             overflow-y:scroll;
         }
         .replaceGrid {
+            margin-right:auto;
+            margin-left:auto;
             display:grid;
             grid-template-columns:auto 20px auto;
-            width:100%;
+            width:auto;
             justify-content:start;
         }
         .replaceGrid h3 {
             margin:0;
         }
+        .subTitle {
+            font-size:28px;
+        }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1a75ff; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0052cc; 
+} 
     </style>
 </head>
 
 <body>
     <div class="bodyContent">
     <h1>Filament Dashboard</h1>
-    <h3>Filament Stats</h3>
+    <h3 class="subTitle">Filament Stats</h3>
     <div class="progress">
         <div class="progress-bar progress-bar-success plaBar" role="progressbar" style="width:40%">
             PLA - <span class="plaPercent"></span>%
@@ -110,7 +149,7 @@
     </div>
     <br>
     <div class="replaceGrid">
-        <h3>Replace Filament</h3>
+        <h3 class="subTitle">Replace Filament</h3>
         <div> </div>
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">&#60;<span class="selected">600</span>g
@@ -123,24 +162,27 @@
             </ul>
           </div>
     </div>
+    <br>
     <ul class="replaceList" id="replaceUL"></ul>
     <br>
-    <h3>Filament Listing</h3>
+    <h3 class="subTitle">Filament Listing</h3>
+    <div class="filamentLists">
     <div class="filamentC" id="pla">
-        <h1>PLA</h1>
+        <h1>PLA <i class="fa fa-solid fa-caret-down"></i></h1>
         <ul class="filamentList" id="plaUL"></ul>
     </div>
     <div class="filamentC" id="petg">
-        <h1>PETG</h1>
+        <h1>PETG <i class="fa fa-solid fa-caret-down"></i></h1>
         <ul class="filamentList" id="petgUL"></ul>
     </div>
     <div class="filamentC" id="abs">
-        <h1>ABS</h1>
+        <h1>ABS <i class="fa fa-solid fa-caret-down"></i></h1>
         <ul class="filamentList" id="absUL"></ul>
     </div>
     <div class="filamentC" id="flexible">
-        <h1>TPU (Flexible)</h1>
+        <h1>TPU (Flexible) <i class="fa fa-solid fa-caret-down"></i></h1>
         <ul class="filamentList" id="tpuUL"></ul>
+    </div>
     </div>
     </div>
 </body>
@@ -159,9 +201,9 @@
     function updateFilamentInListing(index) {
         //this creates a new list item element
         var listItem = document.createElement("LI");
-        listItem.id = `${dataArr[index].type}item${index + 1}`;
+        listItem.id = `${amountArr[index].type}item${index + 1}`;
         listItem.classList.add("linkItem");
-        switch (dataArr[index].type) {
+        switch (amountArr[index].type) {
             case "PLA":
                 plaListing.appendChild(listItem);
                 break;
@@ -179,7 +221,7 @@
                 break;
         }
         //setting the properties of the filament
-        var colorTxt = document.createTextNode(`${dataArr[index].brand} ${dataArr[index].color} - ${dataArr[index].amount}g`);
+        var colorTxt = document.createTextNode(`${amountArr[index].brand} ${amountArr[index].color} - ${amountArr[index].amount}g`);
         listItem.appendChild(colorTxt);
     }
     function updateFilamentInReplace(index) {
@@ -209,7 +251,7 @@
         listItem.appendChild(colorTxt);
     }
     function updateFilamentListing() {
-        for (var index = 0; index < dataArr.length; index++) {
+        for (var index = 0; index < amountArr.length; index++) {
             updateFilamentInListing(index);
             updateFilamentInReplace(index);
         }
@@ -226,29 +268,28 @@
             filamentListing.removeChild(filamentListing.firstChild);
         }
     }
-    function sortArray() {
+    function sortArray(dataArr) {
             var lowestVal;
             var sortedArray = [];
-            for (var index = 0; index < dataArr.length; index++) {
+            var tempArray = dataArr;
+            for (var index = 0; index < tempArray.length; index++) {
               lowestVal = 100000000000;
-              for (var index2 = index; index2 < dataArr.length; index2++) {
-                console.log("dataArr");  
-                console.log(dataArr);
-                var currentVal = dataArr[index2].amount;
+              for (var index2 = index; index2 < tempArray.length; index2++) {
+                var currentVal = tempArray[index2].amount;
                 if (currentVal < lowestVal) {
                   lowestVal = currentVal;
                   var oldObj = sortedArray[index];
                   //this places the least amount first
-                  sortedArray[index] = dataArr[index2];
-                  dataArr[index2] = oldObj;
+                  sortedArray[index] = tempArray[index2];
+                  tempArray[index2] = oldObj;
                 }
                 else if (currentVal == lowestVal) {
                   var tempObj = sortedArray[index];
                   //reverse the two objects if they are not alphabetically sorted when same amount
-                  if (dataArr[index2].brand < tempObj.brand) {
+                  if (tempArray[index2].brand < tempObj.brand) {
                     sortedArray[index+1] = tempObj;
-                    sortedArray[index] = dataArr[index2];
-                    dataArr[index2] = tempObj;
+                    sortedArray[index] = tempArray[index2];
+                    tempArray[index2] = tempObj;
                   }
                 }
               }
@@ -257,8 +298,8 @@
           }
     function updatePercents() {
         var plaT = 0; var petgT = 0; var absT = 0; var tpuT = 0;
-        for (var index = 0; index < dataArr.length; index++) {
-            var temp = dataArr[index];
+        for (var index = 0; index < amountArr.length; index++) {
+            var temp = amountArr[index];
             switch(temp.type) {
                 case "PLA" : 
                     plaT++;
@@ -277,9 +318,9 @@
                     break;    
             }
         }
-        plaPercent = plaT/dataArr.length;
-        petgPercent = petgT/dataArr.length;
-        absPercent = absT/dataArr.length;
+        plaPercent = plaT/amountArr.length;
+        petgPercent = petgT/amountArr.length;
+        absPercent = absT/amountArr.length;
         plaPercent*=100;petgPercent*=100;absPercent*=100;
         tpuPercent = 100-plaPercent-petgPercent-absPercent;
         $(".plaPercent").text(`${plaPercent.toFixed(1)}`);$(".plaBar").css("width", `${plaPercent}%`);
@@ -287,20 +328,20 @@
         $(".absPercent").text(`${absPercent.toFixed(1)}`);$(".absBar").css("width", `${absPercent}%`);
         $(".tpuPercent").text(`${tpuPercent.toFixed(1)}`);$(".tpuBar").css("width", `${tpuPercent}%`);
     }
-    fetch("Assets/filament.json").then(function (resp) {
+    fetch('Assets/filament.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
         dataArr = data.filament;
-        amountArr = sortArray();
+        amountArr = sortArray(dataArr);
         updateFilamentListing();
         updatePercents();
     });
-    $(".filamentC").on("click", function () {
-        if ($(this).find("ul").css("display") == "none") {
-            $(this).find("ul").css("display", "block");
+    $(".filamentC h1").on("click", function () {
+        if ($(this).parent().find("ul").css("display") == "none") {
+            $(this).parent().find("ul").css("display", "block");
         }
-        else if ($(this).find("ul").css("display") == "block") {
-            $(this).find("ul").css("display", "none");
+        else if ($(this).parent().find("ul").css("display") == "block") {
+            $(this).parent().find("ul").css("display", "none");
         }
     });
     $(".dropdown-menu li a").on("click", function() {
