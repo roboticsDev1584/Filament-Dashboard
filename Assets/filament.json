@@ -3,30 +3,254 @@
         {
             "brand":"Overture",
             "type":"PLA",
-            "color":"Pink",
-            "amount":56,
+            "color":"Red",
+            "amount":36,
+            "note":"none"
+        },
+        {
+            "brand":"Solutech",
+            "type":"PLA",
+            "color":"Real Orange",
+            "amount":50,
+            "note":"none"
+        },
+        {
+            "brand":"Solutech",
+            "type":"PLA",
+            "color":"Apple Green",
+            "amount":34,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":51,
+            "note":"none"
+        },
+        {
+            "brand":"Dremel",
+            "type":"PLA",
+            "color":"Blue",
+            "amount":248,
             "note":"none"
         },
         {
             "brand":"Overture",
             "type":"PLA",
             "color":"Red",
-            "amount":199,
+            "amount":36,
             "note":"none"
         },
         {
-            "brand":"Matchbox",
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"True White",
+            "amount":68,
+            "note":"none"
+        },
+        {
+            "brand":"Dremel",
             "type":"PLA",
-            "color":"Blue",
-            "amount":399,
+            "color":"White",
+            "amount":50,
             "note":"none"
         },
         {
-            "brand":"Matchbox",
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True Blue",
+            "amount":57,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":50,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True Yellow",
+            "amount":50,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":62,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"Silk Pink",
+            "amount":124,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":62,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":58,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":57,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":79,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
             "type":"PETG",
+            "color":"Red",
+            "amount":602,
+            "note":"none"
+        },
+        {
+            "brand":"No Brand",
+            "type":"PLA",
+            "color":"Transparent",
+            "amount":155,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"Silk Pink",
+            "amount":237,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"Blue",
+            "amount":424,
+            "note":"none"
+        },
+        {
+            "brand":"MatterHackers",
+            "type":"PLA",
+            "color":"Clear",
+            "amount":268,
+            "note":"none"
+        },
+        {
+            "brand":"Octave",
+            "type":"ABS",
             "color":"Green",
+            "amount":317,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"TPU",
+            "color":"Black",
             "amount":1000,
             "note":"none"
+        },
+        {
+            "brand":"Stronghero3D",
+            "type":"PETG",
+            "color":"Blue",
+            "amount":584,
+            "note":"none"
+        },
+        {
+            "brand":"Duramic",
+            "type":"PLA",
+            "color":"Brown",
+            "amount":863,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Midnight",
+            "amount":436,
+            "note":"Eco-PLA"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True Pink",
+            "amount":520,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True White",
+            "amount":80,
+            "note":"none"
+        },
+        {
+            "brand":"MakerBot",
+            "type":"PLA",
+            "color":"Neon Orange",
+            "amount":164,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"Copper",
+            "amount":41,
+            "note":"none"
+        },
+        {
+            "brand":"No Brand",
+            "type":"PLA",
+            "color":"White",
+            "amount":76,
+            "note":"none"
+        },
+        {
+            "brand":"Dremel",
+            "type":"Nylon",
+            "color":"Black",
+            "amount":80,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Space Grey",
+            "amount":45,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"True Blue",
+            "amount":159,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Midnight Black",
+            "amount":50,
+            "note":"Eco-PLA"
         }
     ]
 }
