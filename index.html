@@ -183,19 +183,22 @@
         <h1>TPU (Flexible) <i class="fa fa-solid fa-caret-down"></i></h1>
         <ul class="filamentList" id="tpuUL"></ul>
     </div>
+    <div class="filamentC" id="nylon">
+        <h1>Nylon <i class="fa fa-solid fa-caret-down"></i></h1>
+        <ul class="filamentList" id="nylonUL"></ul>
+    </div>
     </div>
     </div>
 </body>
 <script>
     //Note that an empty spool weighs roughly 232g
-    //Also need to catalogue all of the new filament spools that are in the lower stacked box (unmarked)
-    //Also need to catalogue all of the newer filament spools in the green marked box
     var dataArr;
     var amountArr;
     var plaListing = document.querySelector("#plaUL");
     var petgListing = document.querySelector("#petgUL");
     var absListing = document.querySelector("#absUL");
     var tpuListing = document.querySelector("#tpuUL");
+    var nylonListing = document.querySelector("#nylonUL");
     var replaceListing = document.querySelector("#replaceUL");
     var plaPercent = 0;
     var petgPercent = 0;
@@ -218,6 +221,9 @@
                 break;
             case "TPU":
                 tpuListing.appendChild(listItem);
+                break;
+            case "Nylon":
+                nylonListing.appendChild(listItem);
                 break;
             default:
                 plaListing.appendChild(listItem);
