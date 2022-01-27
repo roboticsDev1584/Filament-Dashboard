@@ -17,6 +17,13 @@
         {
             "brand":"Solutech",
             "type":"PLA",
+            "color":"Real Purple",
+            "amount":358,
+            "note":"none"
+        },
+        {
+            "brand":"Solutech",
+            "type":"PLA",
             "color":"Apple Green",
             "amount":34,
             "note":"none"
@@ -211,13 +218,6 @@
             "note":"none"
         },
         {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"Copper",
-            "amount":41,
-            "note":"none"
-        },
-        {
             "brand":"No Brand",
             "type":"PLA",
             "color":"White",
@@ -242,7 +242,7 @@
             "brand":"Hatchbox",
             "type":"PLA",
             "color":"True Blue",
-            "amount":159,
+            "amount":126,
             "note":"none"
         },
         {
@@ -251,6 +251,125 @@
             "color":"Midnight Black",
             "amount":50,
             "note":"Eco-PLA"
+        },
+        {
+            "brand":"Inland",
+            "type":"PLA",
+            "color":"Black",
+            "amount":865,
+            "note":"none"
+        },
+        {
+            "brand":"Polymaker",
+            "type":"PLA",
+            "color":"Orange",
+            "amount":1000,
+            "note":"PolyLite"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Midnight Black",
+            "amount":557,
+            "note":"Eco-PLA"
+        },
+        {
+            "brand":"Solutech",
+            "type":"PLA",
+            "color":"Natural Clear",
+            "amount":210,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"Blue",
+            "amount":680,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"White",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"Matte Yellow",
+            "amount":1000,
+            "note":"Matte PLA"
+        },
+        {
+            "brand":"Overture",
+            "type":"PLA",
+            "color":"White",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"Blue",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"True Black",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"Blue",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"PLA",
+            "color":"Cool Gray",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"AMZ3D",
+            "type":"ABS",
+            "color":"Grey",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"True White",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"Transparent White",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"Hatchbox",
+            "type":"ABS",
+            "color":"True Black",
+            "amount":1000,
+            "note":"none"
+        },
+        {
+            "brand":"AMZ3D",
+            "type":"ABS",
+            "color":"Grey",
+            "amount":1000,
+            "note":"none"
         }
     ]
 }
