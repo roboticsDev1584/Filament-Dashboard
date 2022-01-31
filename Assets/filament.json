@@ -46,7 +46,7 @@
             "brand":"Hatchbox",
             "type":"ABS",
             "color":"True White",
-            "amount":68,
+            "amount":1068,
             "note":"none"
         },
         {
@@ -60,7 +60,7 @@
             "brand":"Hatchbox",
             "type":"PLA",
             "color":"True Blue",
-            "amount":57,
+            "amount":183,
             "note":"none"
         },
         {
@@ -102,7 +102,7 @@
             "brand":"Hatchbox",
             "type":"ABS",
             "color":"Blue",
-            "amount":424,
+            "amount":3104,
             "note":"none"
         },
         {
@@ -183,13 +183,6 @@
             "note":"none"
         },
         {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True Blue",
-            "amount":126,
-            "note":"none"
-        },
-        {
             "brand":"Inland",
             "type":"PLA",
             "color":"Black",
@@ -211,13 +204,6 @@
             "note":"none"
         },
         {
-            "brand":"Hatchbox",
-            "type":"ABS",
-            "color":"Blue",
-            "amount":680,
-            "note":"none"
-        },
-        {
             "brand":"Overture",
             "type":"PLA",
             "color":"White",
@@ -234,21 +220,7 @@
         {
             "brand":"Hatchbox",
             "type":"ABS",
-            "color":"Blue",
-            "amount":1000,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"ABS",
             "color":"True Black",
-            "amount":1000,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"ABS",
-            "color":"Blue",
             "amount":1000,
             "note":"none"
         },
@@ -263,14 +235,7 @@
             "brand":"AMZ3D",
             "type":"ABS",
             "color":"Grey",
-            "amount":1000,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"ABS",
-            "color":"True White",
-            "amount":1000,
+            "amount":2000,
             "note":"none"
         },
         {
@@ -284,13 +249,6 @@
             "brand":"Hatchbox",
             "type":"ABS",
             "color":"True Black",
-            "amount":1000,
-            "note":"none"
-        },
-        {
-            "brand":"AMZ3D",
-            "type":"ABS",
-            "color":"Grey",
             "amount":1000,
             "note":"none"
         }
