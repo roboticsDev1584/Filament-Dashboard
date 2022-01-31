@@ -4,7 +4,7 @@
             "brand":"Overture",
             "type":"PLA",
             "color":"Red",
-            "amount":36,
+            "amount":72,
             "note":"none"
         },
         {
@@ -32,7 +32,7 @@
             "brand":"Hatchbox",
             "type":"PLA",
             "color":"True White",
-            "amount":51,
+            "amount":499,
             "note":"none"
         },
         {
@@ -40,13 +40,6 @@
             "type":"PLA",
             "color":"Blue",
             "amount":248,
-            "note":"none"
-        },
-        {
-            "brand":"Overture",
-            "type":"PLA",
-            "color":"Red",
-            "amount":36,
             "note":"none"
         },
         {
@@ -73,13 +66,6 @@
         {
             "brand":"Hatchbox",
             "type":"PLA",
-            "color":"True White",
-            "amount":50,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
             "color":"True Yellow",
             "amount":50,
             "note":"none"
@@ -87,43 +73,8 @@
         {
             "brand":"Hatchbox",
             "type":"PLA",
-            "color":"True White",
-            "amount":62,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
             "color":"Silk Pink",
             "amount":124,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True White",
-            "amount":62,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True White",
-            "amount":58,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True White",
-            "amount":57,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True White",
-            "amount":79,
             "note":"none"
         },
         {
@@ -192,8 +143,8 @@
         {
             "brand":"Overture",
             "type":"PLA",
-            "color":"Midnight",
-            "amount":436,
+            "color":"Midnight Black",
+            "amount":1043,
             "note":"Eco-PLA"
         },
         {
@@ -201,13 +152,6 @@
             "type":"PLA",
             "color":"True Pink",
             "amount":520,
-            "note":"none"
-        },
-        {
-            "brand":"Hatchbox",
-            "type":"PLA",
-            "color":"True White",
-            "amount":80,
             "note":"none"
         },
         {
@@ -246,13 +190,6 @@
             "note":"none"
         },
         {
-            "brand":"Overture",
-            "type":"PLA",
-            "color":"Midnight Black",
-            "amount":50,
-            "note":"Eco-PLA"
-        },
-        {
             "brand":"Inland",
             "type":"PLA",
             "color":"Black",
@@ -265,13 +202,6 @@
             "color":"Orange",
             "amount":1000,
             "note":"PolyLite"
-        },
-        {
-            "brand":"Overture",
-            "type":"PLA",
-            "color":"Midnight Black",
-            "amount":557,
-            "note":"Eco-PLA"
         },
         {
             "brand":"Solutech",
@@ -291,7 +221,7 @@
             "brand":"Overture",
             "type":"PLA",
             "color":"White",
-            "amount":1000,
+            "amount":2000,
             "note":"none"
         },
         {
@@ -300,13 +230,6 @@
             "color":"Matte Yellow",
             "amount":1000,
             "note":"Matte PLA"
-        },
-        {
-            "brand":"Overture",
-            "type":"PLA",
-            "color":"White",
-            "amount":1000,
-            "note":"none"
         },
         {
             "brand":"Hatchbox",
